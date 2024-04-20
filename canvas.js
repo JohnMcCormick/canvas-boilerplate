@@ -2,11 +2,12 @@ const draw = (canvas, canvasContext, timestamp, frameMilliseconds) => {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
   canvasContext.font = "20px Arial";
-  canvasContext.textAlign = "center"
 
-  canvasContext.font = "20px Arial";
-  canvasContext.fillText(`Seconds elapsed:  ${(timestamp / 1000).toFixed(0)}`, canvas.width / 2, (canvas.height / 2) - 15);
-  canvasContext.fillText(`fps:  ${(1000 / frameMilliseconds).toFixed(2)}`, canvas.width / 2, (canvas.height / 2) + 15);
+  canvasContext.textAlign = "left"
+  canvasContext.fillText(`${(1000 / frameMilliseconds).toFixed(2)}`, 5, 20);
+
+  canvasContext.textAlign = "right"
+  canvasContext.fillText(`${(timestamp / 1000).toFixed(0)}`, canvas.width - 5, 20);
 }
 
 const loop = (canvas, canvasContext, timestamp, timestampPrev) => {
